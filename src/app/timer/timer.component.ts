@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-timer',
@@ -11,12 +13,24 @@ export class TimerComponent implements OnInit, OnDestroy {
   isRunning: boolean = false;
   timerId?: any;
 
-  ngOnInit() {}
+  isDarkTheme = false;
+  themeSubscription!: Subscription;
+
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit() {
+    this.themeSubscription = this.themeService.isDarkTheme.subscribe(theme => this.isDarkTheme = theme);
+  }
 
   ngOnDestroy() {
     if (this.timerId) {
       clearInterval(this.timerId);
     }
+    this.themeSubscription.unsubscribe();
+  }
+
+  toggleTheme() {
+    this.themeService.setDarkTheme(!this.isDarkTheme);
   }
 
   startTimer() {
