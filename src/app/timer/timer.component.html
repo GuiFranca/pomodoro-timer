@@ -1,6 +1,8 @@
 <div class="theme-switch">
   <input type="checkbox" id="themeSwitch" (change)="toggleTheme()" [checked]="isDarkTheme">
-  <label for="themeSwitch" class="slider"></label>
+  <label for="themeSwitch" class="slider">
+    <i class="icon" [ngClass]="isDarkTheme ? 'icon-light-off' : 'icon-light-on'"></i>
+  </label>
 </div>
 
 <div class="timer-container">

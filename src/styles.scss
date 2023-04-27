@@ -76,7 +76,9 @@ body.dark-mode {
 }
 
 .theme-switch {
-  position: relative;
+  position: fixed;
+  top: 10px;
+  right: 10px;
   display: inline-block;
   width: 60px;
   height: 34px;
@@ -98,7 +100,27 @@ body.dark-mode {
   background-color: #ccc;
   transition: 0.4s;
   border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.icon-light-on {
+  // background-image: url('assets/icons/light-on.svg');
+}
+
+.icon-light-off {
+  // background-image: url('assets/icons/light-off.svg');
+}
+
 
 .slider:before {
   position: absolute;
@@ -118,6 +140,11 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+  background-color: #f1c40f; // mudamos a cor para amarelo quando o tema escuro está ativo (luz acesa)
+}
+
+input:not(:checked) + .slider:before {
+  background-color: #7f8c8d; // mudamos a cor para cinza quando o tema claro está ativo (luz apagada)
 }
 
 body.dark-mode .slider {
