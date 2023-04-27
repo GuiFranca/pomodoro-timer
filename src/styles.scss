@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -75,9 +75,6 @@ body.dark-mode {
   }
 }
 
-
-// ...
-
 .theme-switch {
   position: relative;
   display: inline-block;
@@ -99,7 +96,7 @@ body.dark-mode {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -111,7 +108,7 @@ body.dark-mode {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -139,3 +136,43 @@ body.light-mode .slider:before {
   transform: translateX(0);
 }
 
+.timer-container {
+  // ...
+  padding: 1rem;
+}
+
+h1 {
+  // ...
+  text-align: center;
+}
+
+h2 {
+  // ...
+  text-align: center;
+}
+
+button {
+  // ...
+  padding: 0.5rem 2rem; // botões mais largos para facilitar o toque
+}
+
+.break-buttons {
+  // ...
+  flex-wrap: wrap; // permite que os botões quebrem em várias linhas se necessário
+}
+
+// Estilos para telas com menos de 600px de largura
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem; // reduz o tamanho da fonte do título
+  }
+
+  h2 {
+    font-size: 3rem; // reduz o tamanho da fonte do timer
+  }
+
+  button {
+    font-size: 1rem; // reduz o tamanho da fonte dos botões
+    padding: 0.5rem 1rem; // reduz a largura dos botões
+  }
+}
