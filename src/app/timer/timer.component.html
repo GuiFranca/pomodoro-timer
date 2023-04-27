@@ -1,5 +1,9 @@
+<div class="theme-switch">
+  <input type="checkbox" id="themeSwitch" (change)="toggleTheme()" [checked]="isDarkTheme">
+  <label for="themeSwitch" class="slider"></label>
+</div>
+
 <div class="timer-container">
-  <button (click)="toggleTheme()">{{ isDarkTheme ? 'Light Mode' : 'Dark Mode' }}</button>
   <h1>Pomodoro Timer</h1>
   <h2>{{ minutes }}:{{ seconds | number: '2.0' }}</h2>
   <div>
