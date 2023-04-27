@@ -48,4 +48,11 @@ export class TimerComponent implements OnInit, OnDestroy {
     this.minutes = 25;
     this.seconds = 0;
   }
+
+  setBreak(minutes: number) {
+    clearInterval(this.timerId);
+    this.isRunning = false;
+    this.minutes = minutes;
+    this.seconds = 0;
+  }
 }

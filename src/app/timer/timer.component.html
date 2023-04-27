@@ -5,4 +5,8 @@
     <button (click)="startTimer()">{{ isRunning ? 'Pause' : 'Start' }}</button>
     <button (click)="resetTimer()">Reset</button>
   </div>
+  <div class="break-buttons">
+    <button (click)="setBreak(5)">5 Minute Break</button>
+    <button (click)="setBreak(15)">15 Minute Break</button>
+  </div>
 </div>
