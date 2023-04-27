@@ -19,6 +19,7 @@ export class TimerComponent implements OnInit, OnDestroy {
   constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
+    this.requestNotificationPermission();
     this.themeSubscription = this.themeService.isDarkTheme.subscribe(theme => this.isDarkTheme = theme);
   }
 
@@ -41,6 +42,7 @@ export class TimerComponent implements OnInit, OnDestroy {
         if (this.seconds === 0) {
           if (this.minutes === 0) {
             clearInterval(this.timerId);
+            this.showNotification()
             this.isRunning = false;
             return;
           } else {
@@ -69,4 +71,18 @@ export class TimerComponent implements OnInit, OnDestroy {
     this.minutes = minutes;
     this.seconds = 0;
   }
+
+  requestNotificationPermission() {
+    if ('Notification' in window && Notification.permission !== 'granted') {
+      Notification.requestPermission();
+    }
+  }
+
+  showNotification() {
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification('Pomodoro Timer', { body: 'O tempo acabou!' });
+    }
+  }
+
+
 }
